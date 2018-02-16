@@ -12,26 +12,6 @@ polyline {
     fill-opacity: 0;
 }
 
-@keyframes spin {
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes ridiculousSpin {
-    100% {
-        transform: rotate 0deg);
-    }
-}
-
-.insaneRotation {
-    animation: 30s linear infinite ridiculousSpin
-}
-
-.rotationGroup {
-    animation: 300s linear infinite spin
-}
-
 .stop {
     fill: red;
 }

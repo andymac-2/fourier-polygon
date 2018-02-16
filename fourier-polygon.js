@@ -1,3 +1,5 @@
+// (C) 2018 Andrew Pritchard (MIT License)
+
 'use strict'
 var FourierDiagram = function () {
     
