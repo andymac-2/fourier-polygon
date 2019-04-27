@@ -6,6 +6,8 @@ Draws an arbitrary polygon based on tracing the paths of rotating circles.
 
 ## Usage
 
+You can see a demo of `fourier-polygon` [here](https://andymac-2.github.io/fourier-polygon/)
+
 ### Invocation
 
 ```javascript
