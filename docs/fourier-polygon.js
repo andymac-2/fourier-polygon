@@ -24,6 +24,12 @@ Complex.prototype.mul = function (other) {
     this.im = im;
     return this;
 };
+Complex.prototype.downscale = function (divisor) {
+    this.re /= divisor;
+    this.im /= divisor;
+    return this;
+};
+
 Complex.prototype.exp = function () {
     var re = Math.exp(this.re) * Math.cos(this.im);
     var im = Math.exp(this.re) * Math.sin(this.im);
@@ -72,7 +78,7 @@ FourierDiagram.prototype.updateTransform = function () {
             var coef = new Complex (0, (-2) * Math.PI * k * n / N)
             current.add(coef.exp().mul(this.polyline[n]));
         }
-        transform.push(current);
+        transform.push(current.downscale(N));
     }
     this.transform = transform;
 };
@@ -115,8 +121,8 @@ FourierDiagram.prototype.draw = function (period) {
     this.circles = [];
     
     for (var i = 0; i < this.transform.length; i++) {
-        var x = this.transform[i].re / this.transform.length;
-        var y = this.transform[i].im / this.transform.length;
+        var x = this.transform[i].re;
+        var y = this.transform[i].im;
         var mag = Math.sqrt (x * x + y * y);
         
         var centre = document.createElementNS(this.NS, "circle");
@@ -178,8 +184,8 @@ FourierDiagram.prototype.animate = function (time) {
     
     for (var i = 0; i < N; k++, i++) {
         
-        var x = acc.re / N;
-        var y = acc.im / N;
+        var x = acc.re;
+        var y = acc.im;
         
         polyString += "" + x + "," + y + " ";
         
@@ -193,12 +199,12 @@ FourierDiagram.prototype.animate = function (time) {
             k -= N;
         }
         
-        var coef = new Complex (0, (-2) * Math.PI * k * n / this.period);
+        var coef = new Complex (0, 2 * Math.PI * k * n / this.period);
         acc.add(coef.exp().mul(this.transform[i]));
     }
     
-    x = acc.re / N;
-    y = acc.im / N;
+    x = acc.re;
+    y = acc.im;
     
     polyString += "" + x + "," + y;
     this.svgPolyLine.setAttribute ("points", polyString);
