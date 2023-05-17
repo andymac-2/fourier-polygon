@@ -1,15 +1,6 @@
-line {
-    stroke: black
-}
-
-circle {
-    stroke: blue;
-}
-
-polyline {
+.radius {
     stroke: red;
     stroke-width: 1;
-    fill-opacity: 0;
 }
 
 .stop {
@@ -18,17 +9,21 @@ polyline {
 
 .centrePoint {
     fill: red;
+    stroke: blue;
 }
 
 .bigCircle {
-    fill-opacity: 0;
+    fill: none;
+    stroke: blue;
 }
 
 .endCircle {
     fill: yellow;
+    stroke: blue;
 }
 
 .traceLine {
+    fill: none;
     stroke-width: 2;
     stroke: black;
 }
