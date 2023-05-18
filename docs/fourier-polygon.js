@@ -92,7 +92,7 @@ class FourierDiagram {
         for (var k = 0; k < N; k++) {
             var current = new Complex (0, 0);
             for (var n = 0; n < N; n++) {
-                var coef = new Complex (0, 2 * Math.PI * k * n / N)
+                var coef = new Complex (0, -2 * Math.PI * k * n / N)
                 current = current.add(coef.exp().mul(polyline[n]));
             }
 
